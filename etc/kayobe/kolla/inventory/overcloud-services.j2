@@ -95,18 +95,26 @@ ceph
 [ceph-osd:children]
 storage
 
+###### CUSTOMISED #######
 # Cinder
 [cinder-api:children]
-cinder
+control
+#########################
 
+###### CUSTOMISED #######
 [cinder-backup:children]
-storage
+control
+#########################
 
+###### CUSTOMISED #######
 [cinder-scheduler:children]
-cinder
+control
+#########################
 
+###### CUSTOMISED #######
 [cinder-volume:children]
-storage
+control
+#########################
 
 # Cloudkitty
 [cloudkitty-api:children]
@@ -523,3 +531,22 @@ monitoring
 
 [prometheus-elasticsearch-exporter:children]
 elasticsearch
+
+########### CUSTOM FORK ONLY ###########
+[prometheus-libvirt-exporter:children]
+compute
+########################################
+
+########### CUSTOM FORK ONLY ###########
+[prometheus-mtail:children]
+monitoring
+control
+compute
+network
+storage
+########################################
+
+########### CUSTOM FORK ONLY ###########
+[prometheus-jiralert:children]
+prometheus-alertmanager
+########################################
