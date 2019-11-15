@@ -50,51 +50,51 @@ designate_ns_record: "cpu-e-1041.iris.staging.cumulus.local"
 
 # Container image tags.
 # These should be allowed to change independently, as services are updated.
-barbican_tag: stein
-bifrost_tag: 7.0.1.10
-caso_tag: 7.0.1.10
-cron_tag: 7.0.1.10
-ceph_tag: 7.0.1.10
-cinder_tag: 7.0.1.10
-chrony_tag: 7.0.1.10
-designate_tag: 7.0.1.10
-elasticsearch_tag: 7.0.1.10
-fluentd_tag: 7.0.1.10
-glance_tag: 7.0.1.10
-grafana_tag: 7.0.1.10
-haproxy_tag: 7.0.1.10
-heat_tag: 7.0.1.10
-horizon_tag: 7.0.1.10
-influxdb_tag: 7.0.1.10
-ironic_tag: 7.0.1.10
-iscsid_tag: 7.0.1.10
-kafka_tag: 7.0.1.10
-keepalived_tag: 7.0.1.10
-keystone_tag: 7.0.1.10
-kibana_tag: 7.0.1.10
-kolla_toolbox_tag: 7.0.1.10
-logstash_tag: 7.0.1.10
-octavia_tag: stein
-magnum_tag: stein
-manila_tag: 7.0.1.10
-mariadb_tag: 7.0.1.10
-memcached_tag: 7.0.1.10
-monasca_tag: 7.0.1.10
-monasca_notification_tag: 7.0.1.10
-monasca_persister_tag: 7.0.1.10
-neutron_tag: 7.0.1.10
-nova_tag: 7.0.1.10
-openvswitch_tag: 7.0.1.10
-prometheus_tag: 7.0.1.10
-prometheus_server_tag: 7.0.1.10
-prometheus_mtail_tag: 7.0.1.10
-prometheus_elasticsearch_exporter_tag: 7.0.1.10
-prometheus_libvirt_exporter_tag: 7.0.1.6
-prometheus_jiralert_tag: 7.0.1.10
-rabbitmq_tag: 7.0.1.10
-skydive_tag: 7.0.1.10
-storm_tag: 7.0.1.10
-zookeeper_tag: 7.0.1.10
+barbican_tag: 8.0.1.1
+bifrost_tag: 8.0.1.1
+caso_tag: 8.0.1.1
+cron_tag: 8.0.1.1
+ceph_tag: 8.0.1.1
+cinder_tag: 8.0.1.1
+chrony_tag: 8.0.1.1
+designate_tag: 8.0.1.1
+elasticsearch_tag: 8.0.1.1
+fluentd_tag: 8.0.1.1
+glance_tag: 8.0.1.1
+grafana_tag: 8.0.1.1
+haproxy_tag: 8.0.1.1
+heat_tag: 8.0.1.1
+horizon_tag: 8.0.1.1
+influxdb_tag: 8.0.1.1
+ironic_tag: 8.0.1.1
+iscsid_tag: 8.0.1.1
+kafka_tag: 8.0.1.1
+keepalived_tag: 8.0.1.1
+keystone_tag: 8.0.1.1
+kibana_tag: 8.0.1.1
+kolla_toolbox_tag: 8.0.1.1
+logstash_tag: 8.0.1.1
+octavia_tag: 8.0.1.1
+magnum_tag: 8.0.1.1
+manila_tag: 8.0.1.1
+mariadb_tag: 8.0.1.1
+memcached_tag: 8.0.1.1
+monasca_tag: 8.0.1.1
+monasca_notification_tag: 8.0.1.1
+monasca_persister_tag: 8.0.1.1
+neutron_tag: 8.0.1.1
+nova_tag: 8.0.1.1
+openvswitch_tag: 8.0.1.1
+prometheus_tag: 8.0.1.1
+prometheus_server_tag: 8.0.1.1
+prometheus_mtail_tag: 8.0.1.1
+prometheus_elasticsearch_exporter_tag: 8.0.1.1
+prometheus_libvirt_exporter_tag: 8.0.1.1
+prometheus_jiralert_tag: 8.0.1.1
+rabbitmq_tag: 8.0.1.1
+skydive_tag: 8.0.1.1
+storm_tag: 8.0.1.1
+zookeeper_tag: 8.0.1.1
 
 # Kayobe currently configures ntpd on each node in the overcloud
 enable_chrony: false
@@ -102,19 +102,3 @@ enable_host_ntp: true
 
 # Default size causes ES to fall over very easily
 es_heap_size: "24g"
-
-# Use upstream magnum images for these
-magnum_api_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ magnum_install_type }}-magnum-api{% endraw %}"
-magnum_conductor_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ magnum_install_type }}-magnum-conductor{% endraw %}"
-
-# Use upstream octavia images for these
-octavia_api_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ octavia_install_type }}-octavia-api{% endraw %}"
-octavia_housekeeping_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ octavia_install_type }}-octavia-housekeeping{% endraw %}"
-octavia_worker_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ octavia_install_type }}-octavia-worker{% endraw %}"
-octavia_health_manager_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ octavia_install_type }}-octavia-health-manager{% endraw %}"
-
-# Use upstream barbican images for these
-barbican_api_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ barbican_install_type }}-barbican-api{% endraw %}"
-barbican_keystone_listener_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ barbican_install_type }}-barbican-keystone-listener{% endraw %}"
-barbican_worker_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ barbican_install_type }}-barbican-worker{% endraw %}"
-
