@@ -32,7 +32,6 @@ monitoring
 
 [etcd:children]
 control
-compute
 
 ###### CUSTOMISED #######
 [influxdb]
@@ -101,15 +100,15 @@ control
 [qdrouterd:children]
 control
 
-[monasca:children]
-monitoring
-
 [monasca-agent:children]
 compute
 control
 monitoring
 network
 storage
+
+[monasca:children]
+monitoring
 
 [storm:children]
 monitoring
@@ -171,8 +170,7 @@ control
 control
 
 [ceph:children]
-#control
-storage
+control
 
 [magnum:children]
 control
@@ -191,6 +189,10 @@ control
 
 [aodh:children]
 control
+
+[cyborg:children]
+control
+compute
 
 [congress:children]
 control
