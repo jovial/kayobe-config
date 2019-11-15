@@ -38,8 +38,11 @@ prometheus_jiralert_default_receiver_name: 'default'
 
 # Projects to extracts metrics from with cASO
 #caso_projects:
-#  - iris
 #  - iris-euclid
+caso_messengers:
+  - caso.messenger.logstash.LogstashMessenger
+  - caso.messenger.ssm.SSMMessengerV04
+caso_site_name: "UK-CAM-CUMULUS"
 
 # Designate (DNSaaS) configuration
 designate_backend: "bind9"
@@ -96,6 +99,9 @@ zookeeper_tag: 7.0.1.10
 # Kayobe currently configures ntpd on each node in the overcloud
 enable_chrony: false
 enable_host_ntp: true
+
+# Default size causes ES to fall over very easily
+es_heap_size: "24g"
 
 # Use upstream magnum images for these
 magnum_api_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ magnum_install_type }}-magnum-api{% endraw %}"
