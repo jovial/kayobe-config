@@ -38,6 +38,7 @@ prometheus_jiralert_default_receiver_name: 'default'
 
 # Projects to extracts metrics from with cASO
 #caso_projects:
+#  - iris
 #  - iris-euclid
 caso_messengers:
   - caso.messenger.logstash.LogstashMessenger
