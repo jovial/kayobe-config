@@ -107,8 +107,6 @@ kolla_build_blocks:
     RUN yum remove -y mod_auth_openidc
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/cjose-0.6.1.4-1.el7.x86_64.rpm
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/mod_auth_openidc-2.3.11-1.el7.x86_64.rpm
-  horizon_footer: |
-    RUN pip install --no-cache-dir magnum-ui==5.1.0
   magnum_api_footer: |
     # This branch fixes k8s FailedNodeAllocatableEnforcement warning
     RUN pip install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/8.2.0.1
@@ -137,9 +135,6 @@ kolla_build_customizations:
     - 'openssl-devel'
     - 'hiredis'
   neutron_server_packages_append:
-    # Allow custom packages to be installed via pip.
-    - 'python-pip'
-  horizon_packages_append:
     # Allow custom packages to be installed via pip.
     - 'python-pip'
 
