@@ -108,7 +108,7 @@ kolla_build_blocks:
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/cjose-0.6.1.4-1.el7.x86_64.rpm
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/mod_auth_openidc-2.3.11-1.el7.x86_64.rpm
   horizon_footer: |
-    RUN pip install -U --no-deps git+https://github.com/RSE-Cambridge/magnum-ui@cumulus/stein
+    RUN pip install --no-cache-dir magnum-ui==5.1.0
   magnum_api_footer: |
     # This branch fixes k8s FailedNodeAllocatableEnforcement warning
     RUN pip install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/8.2.0.1
