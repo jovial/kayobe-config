@@ -79,7 +79,7 @@ monasca_tag: 7.1.0.1
 monasca_grafana_tag: 7.1.0.1
 monasca_notification_tag: 7.1.0.1
 monasca_persister_tag: 7.1.0.1
-neutron_tag: 7.1.0.1
+neutron_tag: 7.1.0.2
 nova_tag: 7.1.0.1
 octavia_tag: stein
 openvswitch_tag: 7.1.0.1
