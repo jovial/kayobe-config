@@ -76,7 +76,7 @@ kibana_tag: 8.0.1.1
 kolla_toolbox_tag: 8.0.1.1
 logstash_tag: 8.0.1.1
 octavia_tag: 8.0.1.1
-magnum_tag: 8.0.1.1
+magnum_tag: train
 manila_tag: 8.0.1.1
 mariadb_tag: 8.0.1.1
 memcached_tag: 8.0.1.1
@@ -102,3 +102,8 @@ es_heap_size: "24g"
 
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
+
+# Use upstream magnum images for these
+magnum_api_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ magnum_install_type }}-magnum-api{% endraw %}"
+magnum_conductor_image: "{% raw %}kolla/{{ kolla_base_distro }}-{{ magnum_install_type }}-magnum-conductor{% endraw %}"
+
