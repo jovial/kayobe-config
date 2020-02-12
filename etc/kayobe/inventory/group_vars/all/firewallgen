@@ -47,10 +47,18 @@ firewallgen_ipv4_input_allow_rewrite_rules_all:
 
 firewallgen_ipv4_input_allow_rewrite_rules: >-
   {{ firewallgen_ipv4_input_allow_rewrite_rules_all +
-     firewallgen_ipv4_input_allow_rewrite_rules_extra }}
+     firewallgen_ipv4_input_allow_rewrite_rules_seed | default([]) +
+     firewallgen_ipv4_input_allow_rewrite_rules_controllers | default([]) +
+     firewallgen_ipv4_input_allow_rewrite_rules_ceph | default([]) +
+     firewallgen_ipv4_input_allow_rewrite_rules_compute | default([]) +
+     firewallgen_ipv4_input_allow_rewrite_rules_monitoring | default([]) }}
 
 firewallgen_ipv4_input_allow_custom_rules_all: []
 
 firewallgen_ipv4_input_allow_custom_rules: >-
   {{ firewallgen_ipv4_input_allow_custom_rules_all +
-  firewallgen_ipv4_input_allow_custom_rules_extra | default([]) }}
+     firewallgen_ipv4_input_allow_custom_rules_seed | default([]) +
+     firewallgen_ipv4_input_allow_custom_rules_controllers | default([]) +
+     firewallgen_ipv4_input_allow_custom_rules_ceph | default([]) +
+     firewallgen_ipv4_input_allow_custom_rules_compute | default([]) +
+     firewallgen_ipv4_input_allow_custom_rules_monitoring | default([]) }}

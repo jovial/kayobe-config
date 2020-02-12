@@ -17,11 +17,7 @@ firewallgen_ipv4_input_allow_rewrite_rules_controllers:
   - '. | map( if .port == 4789 then .interface = "{% raw %}{{ tunnel_net_interface }}{% endraw %}" else . end)'
   - '(.[] | select(.processes[0].name == "httpd" and .processes[].docker_hint == "placement_api") | .interface) |= "{% raw %}{{ internal_net_interface }}{% endraw %}"'
 
-firewallgen_ipv4_input_allow_rewrite_rules: >
-  {{ firewallgen_ipv4_input_allow_rewrite_rules_controllers +
-  firewallgen_ipv4_input_allow_rewrite_rules_all }}
-
-firewallgen_ipv4_input_allow_custom_rules_extra:
+firewallgen_ipv4_input_allow_custom_rules_controllers:
   # Galera firewall rules: http://galeracluster.com/documentation-webpages/firewallsettings.html
   # We seemed to need these for: kayobe kolla ansible run mariadb_recovery
   # Galera: Incremental State Transfer

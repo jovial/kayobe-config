@@ -8,7 +8,3 @@ firewallgen_ipv4_input_allow_rewrite_rules_monitoring:
         .interface = "{{ firewallgen_interface_tmpl % 'internal_net_name' }}" |
         .ip = "{% raw %}{{ internal_net_name | net_ip }}{% endraw %}"
       else . end)
-
-firewallgen_ipv4_input_allow_rewrite_rules: >-
-  {{ firewallgen_ipv4_input_allow_rewrite_rules_monitoring +
-     firewallgen_ipv4_input_allow_rewrite_rules_all }}
