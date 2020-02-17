@@ -14,9 +14,8 @@
 kolla_source_url: https://github.com/RSE-Cambridge/kolla
 
 # Version (branch, tag, etc.) of Kolla source code repository if type is
-# 'source'.
-#kolla_source_version: refs/tags/cumulus/7.0.1.5
-kolla_source_version: sync-upstream-june6
+# 'source'. Default is {{ openstack_branch }}.
+kolla_source_version: cumulus/stein
 
 # Path to virtualenv in which to install kolla.
 #kolla_venv:
@@ -37,10 +36,8 @@ kolla_ansible_ctl_install_type: source
 kolla_ansible_source_url: https://github.com/RSE-Cambridge/kolla-ansible
 
 # Version (branch, tag, etc.) of Kolla Ansible source code repository if type
-# is 'source'.
-#kolla_ansible_source_version: refs/tags/cumulus/7.0.1.7
-#kolla_ansible_source_version: upstream-sync-june6
-kolla_ansible_source_version:  cumulus/rocky
+# is 'source'. Default is {{ openstack_branch }}.
+kolla_ansible_source_version: cumulus/stein
 
 # Path to virtualenv in which to install kolla-ansible.
 #kolla_ansible_venv:
@@ -76,7 +73,7 @@ kolla_docker_namespace: rse-cambridge
 #kolla_docker_registry_password:
 
 # Kolla OpenStack release version. This should be a Docker image tag.
-kolla_openstack_release: 7.0.1.10
+kolla_openstack_release: 8.0.1.1
 
 # Dict mapping names of sources to their definitions for
 # kolla_install_type=source. See kolla.common.config for details.
@@ -95,10 +92,13 @@ kolla_openstack_release: 7.0.1.10
 #kolla_build_blocks:
 kolla_build_blocks:
   neutron_server_footer: |
-    RUN pip install git+https://github.com/stackhpc/networking-generic-switch@stackhpc/1.2.0.2
+    RUN pip install git+https://github.com/stackhpc/networking-generic-switch@stackhpc/1.3.1.1 -c https://releases.openstack.org/constraints/upper/stein
   prometheus_server_repository_version: |
     # Avoid the pain of porting 1.x rules and migrating data to 2.x
     ARG prometheus_version='2.8.0'
+  prometheus_libvirt_exporter_version: |
+    ARG prometheus_libvirt_exporter_version=0.1.1.1
+    ARG prometheus_libvirt_exporter_url=https://github.com/stackhpc/libvirt_exporter/archive/${prometheus_libvirt_exporter_version}.tar.gz
   ironic_inspector_footer: |
     # Install our custom inspector plugins.
     RUN pip install stackhpc-inspector-plugins==1.1.1
@@ -107,12 +107,9 @@ kolla_build_blocks:
     RUN cp /usr/lib/python2.7/site-packages/ceph_volume_client.py /usr/lib/python2.7/site-packages/ceph_volume_client.py.old
     RUN curl https://raw.githubusercontent.com/ceph/ceph/mimic/src/pybind/ceph_volume_client.py -o /usr/lib/python2.7/site-packages/ceph_volume_client.py
   keystone_footer: |
-    RUN pip install -U --no-deps git+https://github.com/RSE-Cambridge/keystone@stable/rocky
     RUN yum remove -y mod_auth_openidc
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/cjose-0.6.1.4-1.el7.x86_64.rpm
     RUN rpm -i https://github.com/zmartzone/mod_auth_openidc/releases/download/v2.3.11/mod_auth_openidc-2.3.11-1.el7.x86_64.rpm
-  horizon_footer: |
-    RUN pip install -U --no-deps git+https://github.com/RSE-Cambridge/magnum-ui@cumulus/rocky
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:
@@ -137,9 +134,6 @@ kolla_build_customizations:
   neutron_server_packages_append:
     # Allow custom packages to be installed via pip.
     - 'python-pip'
-  horizon_packages_append:
-    # Allow custom packages to be installed via pip.
-    - 'python-pip'
 
 ###############################################################################
 # Kolla-ansible inventory configuration.
@@ -157,7 +151,7 @@ kolla_build_customizations:
 kolla_overcloud_inventory_custom_components: "{{ lookup('template', kayobe_config_path ~ '/kolla/inventory/overcloud-components.j2') }}"
 
 # Custom overcloud inventory containing a mapping from services to components.
-#kolla_overcloud_inventory_custom_services:
+kolla_overcloud_inventory_custom_services: "{{ lookup('template', kayobe_config_path ~ '/kolla/inventory/overcloud-services.j2') }}"
 
 # Full custom overcloud inventory contents. By default this will be the
 # concatenation of the top level, component, and service inventories.
@@ -214,6 +208,9 @@ kolla_enable_ceph: False
 #kolla_enable_ceph_mds:
 #kolla_enable_ceph_nfs:
 #kolla_enable_ceph_rgw:
+# The chrony container is disabled by default because we enable an NTP daemon
+# on the host. Setting this to true will disable NTP on the host.
+#kolla_enable_chrony:
 kolla_enable_cinder: False
 #kolla_enable_cinder_backend_hnas_iscsi:
 #kolla_enable_cinder_backend_hnas_nfs:
@@ -238,6 +235,7 @@ kolla_enable_ironic_ipxe: True
 #kolla_enable_ironic_pxe_uefi:
 #kolla_enable_iscsid:
 #kolla_enable_karbor:
+#kolla_enable_keystone:
 #kolla_enable_kuryr:
 kolla_enable_magnum: True
 kolla_enable_manila: False

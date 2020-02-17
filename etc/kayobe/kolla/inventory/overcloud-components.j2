@@ -32,7 +32,6 @@ monitoring
 
 [etcd:children]
 control
-compute
 
 ###### CUSTOMISED #######
 [influxdb]
@@ -101,15 +100,15 @@ control
 [qdrouterd:children]
 control
 
-[monasca:children]
-monitoring
-
 [monasca-agent:children]
 compute
 control
 monitoring
 network
 storage
+
+[monasca:children]
+monitoring
 
 [storm:children]
 monitoring
@@ -171,8 +170,7 @@ control
 control
 
 [ceph:children]
-#control
-storage
+control
 
 [magnum:children]
 control
@@ -191,6 +189,10 @@ control
 
 [aodh:children]
 control
+
+[cyborg:children]
+control
+compute
 
 [congress:children]
 control
@@ -269,35 +271,3 @@ control
 {{ groups['monitoring'][0] }}
 {% endif %}
 #########################
-
-# Cinder
-[cinder-api:children]
-control
-
-[cinder-backup:children]
-control
-
-[cinder-scheduler:children]
-control
-
-[cinder-volume:children]
-control
-
-[prometheus-elasticsearch-exporter:children]
-elasticsearch
-
-[prometheus-libvirt-exporter:children]
-compute
-
-[prometheus-openstack-exporter:children]
-monitoring
-
-[prometheus-mtail:children]
-monitoring
-control
-compute
-network
-storage
-
-[prometheus-jiralert:children]
-prometheus-alertmanager
