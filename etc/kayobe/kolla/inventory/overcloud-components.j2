@@ -33,20 +33,34 @@ monitoring
 [etcd:children]
 control
 
-[influxdb:children]
-monitoring
+###### CUSTOMISED #######
+[influxdb]
+#control
+# FIXME: Ideally we wouldn't reference monitoring nodes in here directly, but
+# only one InfluxDB service should exist without the Enterprise license for
+# clustering, and groups can't be indexed in an inventory (e.g. ironic[0]).
+{% if groups.get('monitoring', []) | length > 0 %}
+{{ groups['monitoring'][0] }}
+{% endif %}
+#########################
 
 [prometheus:children]
 monitoring
 
+###### CUSTOMISED #######
 [kafka:children]
-control
+#control
+monitoring
+#########################
 
 [karbor:children]
 control
 
+###### CUSTOMISED #######
 [kibana:children]
-control
+#control
+monitoring
+#########################
 
 [telegraf:children]
 compute
@@ -55,8 +69,11 @@ monitoring
 network
 storage
 
+###### CUSTOMISED #######
 [elasticsearch:children]
-control
+#control
+monitoring
+#########################
 
 [haproxy:children]
 network
@@ -229,8 +246,11 @@ control
 [bifrost:children]
 deployment
 
+###### CUSTOMISED #######
 [zookeeper:children]
-control
+#control
+monitoring
+#########################
 
 [zun:children]
 control
@@ -243,3 +263,14 @@ control
 
 [blazar:children]
 control
+
+###### CUSTOMISED #######
+[caso]
+#monitoring
+# FIXME: Ideally we wouldn't reference monitoring nodes in here directly, but
+# only one cASO service should exist and groups can't be indexed in an
+# inventory (e.g. ironic[0]).
+{% if groups.get('monitoring', []) | length > 0 %}
+{{ groups['monitoring'][0] }}
+{% endif %}
+#########################
