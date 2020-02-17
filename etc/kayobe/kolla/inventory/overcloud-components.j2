@@ -33,34 +33,20 @@ monitoring
 [etcd:children]
 control
 
-###### CUSTOMISED #######
-[influxdb]
-#control
-# FIXME: Ideally we wouldn't reference monitoring nodes in here directly, but
-# only one InfluxDB service should exist without the Enterprise license for
-# clustering, and groups can't be indexed in an inventory (e.g. ironic[0]).
-{% if groups.get('monitoring', []) | length > 0 %}
-{{ groups['monitoring'][0] }}
-{% endif %}
-#########################
+[influxdb:children]
+monitoring
 
 [prometheus:children]
 monitoring
 
-###### CUSTOMISED #######
 [kafka:children]
-#control
-monitoring
-#########################
+control
 
 [karbor:children]
 control
 
-###### CUSTOMISED #######
 [kibana:children]
-#control
-monitoring
-#########################
+control
 
 [telegraf:children]
 compute
@@ -69,11 +55,8 @@ monitoring
 network
 storage
 
-###### CUSTOMISED #######
 [elasticsearch:children]
-#control
-monitoring
-#########################
+control
 
 [haproxy:children]
 network
@@ -175,6 +158,9 @@ control
 [magnum:children]
 control
 
+[qinling:children]
+control
+
 [sahara:children]
 control
 
@@ -243,11 +229,8 @@ control
 [bifrost:children]
 deployment
 
-###### CUSTOMISED #######
 [zookeeper:children]
-#control
-monitoring
-#########################
+control
 
 [zun:children]
 control
@@ -260,14 +243,3 @@ control
 
 [blazar:children]
 control
-
-###### CUSTOMISED #######
-[caso]
-#monitoring
-# FIXME: Ideally we wouldn't reference monitoring nodes in here directly, but
-# only one cASO service should exist and groups can't be indexed in an
-# inventory (e.g. ironic[0]).
-{% if groups.get('monitoring', []) | length > 0 %}
-{{ groups['monitoring'][0] }}
-{% endif %}
-#########################
