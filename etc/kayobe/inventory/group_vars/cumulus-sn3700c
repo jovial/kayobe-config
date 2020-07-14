@@ -1,0 +1,65 @@
+---
+# High-speed Ethernet (HS) switch configuration for Mellanox SN3700C switches
+# These switches are running Cumulus Linux as their NOS
+
+# User to access the switch via SSH.
+ansible_user: cumulus
+
+# Password to access the switch via SSH.
+ansible_ssh_pass: "{{ secrets_switch_ssh_password }}"
+
+# Group-specific configuration data
+dns_server: "10.45.255.50"
+ntp_server: "10.45.255.49"
+snmp_server: "10.45.101.1"
+trunk_vlans: "4,5,43,202,610,611,613"
+
+switch_config_base:
+  - "add dns nameserver ipv4 {{ dns_server }} vrf mgmt"
+  - "add hostname {{ inventory_hostname }}"
+  - "del time ntp server 0.cumulusnetworks.pool.ntp.org"
+  - "del time ntp server 1.cumulusnetworks.pool.ntp.org"
+  - "del time ntp server 2.cumulusnetworks.pool.ntp.org"
+  - "del time ntp server 3.cumulusnetworks.pool.ntp.org"
+  - "add time ntp server {{ ntp_server }} iburst"
+  - "add time ntp source eth0"
+  - "add bridge stp treeprio 24576"
+
+switch_config_snmp:
+  - "add snmp-server listening-address {{ ansible_host }} vrf mgmt"
+  - "add snmp-server readonly-community public access {{ snmp_server }}/32"
+  - "add snmp-server system-name {{ inventory_hostname }}.bmc.cluster"
+
+switch_breakout_ports:
+# Breakout config will throw an error on ports that're already broken out
+#  - "add interface swp1-29 breakout 2x"
+  - "add interface swp31-32"
+
+switch_bond_interface_config:
+  - "add bond bond0 bond slaves swp31,swp32"
+  - "add bond bond0 bridge vids {{ trunk_vlans }}"
+
+switch_bridge_interface_config:
+  - "add bridge bridge pvid 1"
+  - "add bridge bridge vids {{ trunk_vlans }}"
+  - "add bridge bridge vlan-aware"
+
+switch_config_all: >
+  {{ switch_config_base }} + {{ switch_config_snmp }} +
+  {{ switch_breakout_ports}} +
+  {{ switch_bond_interface_config }} +
+  {{ switch_bridge_interface_config }}
+
+switch_interface_config_compute:
+  - "stp bpduguard"
+  - "stp portadminedge"
+
+# Can't do rsyslog client config with nclu, use play
+# - name: Configure remote rsyslog server
+#   template:
+#     src: 11-remotesyslog.conf.j2
+#     dest: /etc/rsyslog.d/11-remotesyslog.conf
+#     owner: root
+#     group: root
+#     mode: 0644
+#   notify: restart_rsyslog

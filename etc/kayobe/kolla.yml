@@ -146,7 +146,11 @@ kolla_build_customizations:
     - 'hiredis'
   neutron_server_packages_append:
     # Allow custom packages to be installed via pip.
+    - 'gcc'
+    - 'python-devel'
     - 'python-pip'
+    - 'python2-network-runner.noarch'
+    - 'python2-networking-ansible'
 
 ###############################################################################
 # Kolla-ansible inventory configuration.

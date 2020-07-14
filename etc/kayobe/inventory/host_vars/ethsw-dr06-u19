@@ -1,0 +1,168 @@
+---
+# Switch configuration for ethsw-dr06-u19
+
+# This switch is a 100GbE Mellanox SN3700C, and provides High-Speed Ethernet access
+# This switch is running Cumulus Linux as its NOS
+
+###############################################################################
+# Switch credentials.
+
+# Host/IP on which to access the switch via SSH.
+ansible_host: 10.202.4.253
+
+# The type of switch used for the control and provisioning network.
+switch_type: nclu
+
+###############################################################################
+# Global configuration.
+
+# Global configuration. List of global configuration lines.
+switch_config: "{{ switch_config_all }}"
+
+# Interface configuration. Dict mapping switch interface names to configuration
+# dicts. Each dict contains a description item and a 'config' item which should
+# contain a list of per-interface configuration.
+switch_interface_config:
+#####
+# MGT0 interface
+#  eth0:
+#    config: "ip address {{ ansible_host }}/16"
+# Host access ports, by chassis
+# U33-34
+  swp1s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp1s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp2s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp2s1:
+    config: "{{ switch_interface_config_compute }}"
+# U31-32
+  swp3s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp3s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp4s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp4s1:
+    config: "{{ switch_interface_config_compute }}"
+# U29-30
+  swp5s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp5s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp6s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp6s1:
+    config: "{{ switch_interface_config_compute }}"
+# U27-28
+  swp7s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp7s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp8s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp8s1:
+    config: "{{ switch_interface_config_compute }}"
+# U25-26
+  swp9s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp9s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp10s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp10s1:
+    config: "{{ switch_interface_config_compute }}"
+# U23-24
+  swp11s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp11s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp12s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp12s1:
+    config: "{{ switch_interface_config_compute }}"
+# U21-22
+  swp13s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp13s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp14s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp14s1:
+    config: "{{ switch_interface_config_compute }}"
+# U13-14
+  swp15s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp15s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp16s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp16s1:
+    config: "{{ switch_interface_config_compute }}"
+# U11-12
+  swp17s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp17s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp18s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp18s1:
+    config: "{{ switch_interface_config_compute }}"
+# U9-10
+  swp19s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp19s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp20s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp20s1:
+    config: "{{ switch_interface_config_compute }}"
+# U7-8
+  swp21s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp21s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp22s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp22s1:
+    config: "{{ switch_interface_config_compute }}"
+# U5-6
+  swp23s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp23s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp24s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp24s1:
+    config: "{{ switch_interface_config_compute }}"
+# U3-4
+  swp25s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp25s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp26s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp26s1:
+    config: "{{ switch_interface_config_compute }}"
+# U1-2
+  swp27s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp27s1:
+    config: "{{ switch_interface_config_compute }}"
+  swp28s0:
+    config: "{{ switch_interface_config_compute }}"
+  swp28s1:
+    config: "{{ switch_interface_config_compute }}"
+# Bridge interface
+  bridge:
+    type: bridge
+    config:
+      - "ports swp1s0-1,swp2s0-1,swp3s0-1,swp4s0-1"
+      - "ports swp5s0-1,swp6s0-1,swp7s0-1,swp8s0-1"
+      - "ports swp9s0-1,swp10s0-1,swp11s0-1,swp12s0-1"
+      - "ports swp13s0-1,swp14s0-1,swp15s0-1,swp16s0-1"
+      - "ports swp17s0-1,swp18s0-1,swp19s0-1,swp20s0-1"
+      - "ports swp21s0-1,swp22s0-1,swp23s0-1,swp24s0-1"
+      - "ports swp25s0-1,swp26s0-1,swp27s0-1,swp28s0-1"
+      - "ports bond0"
