@@ -115,8 +115,8 @@ prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.ret
 
 # Check keystone and horizon are up, and cert is valid
 prometheus_blackbox_exporter_endpoints:
-  - "https://{{ kolla_external_fqdn }}/auth/login/"
-  - "https://{{ kolla_external_fqdn }}:5000/v3"
+  - "https://{{ public_net_fqdn }}/auth/login/"
+  - "https://{{ public_net_fqdn }}:5000/v3"
 
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
