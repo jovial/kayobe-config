@@ -1,7 +1,7 @@
 - src: https://github.com/stackhpc/ansible-role-firewallgen
-  version: master
+  version: 1.0.0
   name: stackhpc.firewallgen
 
-- src: https://github.com/paulbrowne/stackhpc.ssm
-  version: auth_token
+- src: https://github.com/stackhpc/stackhpc.ssm
+  version: 1.0.0
   name: stackhpc.ssm
