@@ -14,8 +14,8 @@ route:
 receivers:
   - name: 'slack-notifications'
     slack_configs: {{ '{% raw %}' }}{% raw %}
-    - channel: '#iris-preprod-notifications'
-      title: '{{ .GroupLabels.alertname }} alert has triggered'
+    - channel: '#iris-notifications'
+      title: 'PreProd: {{ .GroupLabels.alertname }} alert has triggered'
       text: '{{ range .Alerts }}{{ .Annotations.description }}\n{{ end }}'
       send_resolved: true
 {% endraw %}{{ '{% endraw %}' }}
