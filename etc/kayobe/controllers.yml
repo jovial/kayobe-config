@@ -10,19 +10,7 @@ controller_bootstrap_user: centos
 # Network interface attachments.
 
 # List of networks to which controller nodes are attached.
-controller_network_interfaces: >
-  {{ [admin_oc_net_name,
-      "bond0_net",
-      "br_net",
-      "external_net",
-      oob_wl_net_name,
-      public_net_name,
-      tunnel_net_name,
-      internal_net_name,
-      cleaning_net_name,
-      inspection_net_name,
-      octavia_net_name,
-      provision_wl_net_name] | unique | list }}
+#controller_network_interfaces:
 
 # List of default networks to which controller nodes are attached.
 #controller_default_network_interfaces:
@@ -74,18 +62,7 @@ controller_network_interfaces: >
 
 # List of controller volume groups. See mrlesmithjr.manage-lvm role for
 # format.
-controller_lvm_groups:
-  - vgname: docker-volumes
-    disks:
-      - /dev/sdb
-    create: true
-    lvnames:
-      - lvname: docker-volumes-0
-        size: "100%FREE"
-        create: true
-        mount: true
-        filesystem: ext4
-        mntp: /var/lib/docker/volumes
+#controller_lvm_groups:
 
 # Default list of controller volume groups. See mrlesmithjr.manage-lvm role for
 # format.

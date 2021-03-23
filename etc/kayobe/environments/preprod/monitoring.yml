@@ -1,0 +1,16 @@
+---
+###############################################################################
+# Monitoring node configuration.
+
+###############################################################################
+# Monitoring node network interface configuration.
+
+# List of networks to which monitoring nodes are attached.
+monitoring_network_interfaces: >
+  {{ [admin_oc_net_name,
+      "bond0_net",
+      internal_net_name] | unique | list }}
+
+###############################################################################
+# Dummy variable to allow Ansible to accept this file.
+workaround_ansible_issue_8743: yes

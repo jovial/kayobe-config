@@ -105,4 +105,5 @@ es_heap_size: "24g"
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
 
-
+# Needed to launch VM instances in aio environment without nested virt
+nova_compute_virt_type: "{{ 'qemu' if kayobe_environment == 'aio' else 'kvm' }}"
