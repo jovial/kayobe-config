@@ -60,6 +60,7 @@ cinder_tag: 9.0.1.1
 chrony_tag: 9.0.1.1
 designate_tag: 9.0.1.1
 elasticsearch_tag: 9.0.1.1
+elasticsearch_curator_tag: 9.3.1.1-1
 fluentd_tag: 9.0.1.1
 glance_tag: 9.0.1.1
 grafana_tag: 9.0.1.1
@@ -99,8 +100,23 @@ zookeeper_tag: 9.0.1.1
 
 # Default size causes ES to fall over very easily
 es_heap_size: "24g"
+# Look after elasticserach indexes, as required
+enable_elasticsearch_curator: true
+# Close index after 30 days
+elasticsearch_curator_soft_retention_period_days: 30
+# Hard delete index after around 3 years
+elasticsearch_curator_hard_retention_period_days: 1100
+
+# Takes longer than the default 10 seconds
+prometheus_openstack_exporter_timeout: 15s
+
+# Increase the default prometheus retention period
+prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.retention.size=50GB'
+
+# Check keystone and horizon are up, and cert is valid
+prometheus_blackbox_exporter_endpoints:
+  - "https://{{ kolla_external_fqdn }}/auth/login/"
+  - "https://{{ kolla_external_fqdn }}:5000/v3"
 
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
-
-
