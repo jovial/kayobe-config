@@ -107,8 +107,8 @@ elasticsearch_curator_soft_retention_period_days: 30
 # Hard delete index after around 3 years
 elasticsearch_curator_hard_retention_period_days: 1100
 
-# Takes longer than the default 10 seconds
-prometheus_openstack_exporter_timeout: 15s
+# Takes longer than the default 10 seconds, we poll every 1m
+prometheus_openstack_exporter_timeout: 30s
 
 # Increase the default prometheus retention period
 prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.retention.size=50GB'
