@@ -114,9 +114,10 @@ prometheus_openstack_exporter_timeout: 15s
 prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.retention.size=50GB'
 
 # Check keystone and horizon are up, and cert is valid
-prometheus_blackbox_exporter_endpoints:
-  - "https://{{ public_net_fqdn }}/auth/login/"
-  - "https://{{ public_net_fqdn }}:5000/v3"
+# TODO: fixme
+#prometheus_blackbox_exporter_endpoints:
+#  - "https://{{ public_net_fqdn }}/auth/login/"
+#  - "https://{{ public_net_fqdn }}:5000/v3"
 
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
