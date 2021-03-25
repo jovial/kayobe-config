@@ -4,7 +4,8 @@ OPENSTACK_SERIES=train
 KAYOBE_URI=https://github.com/RSE-Cambridge/kayobe
 KAYOBE_BRANCH=cumulus/train
 
-KAYOBE_AUTOMATION_TEMPEST_CONF_OVERRIDES="${KAYOBE_AUTOMATION_CONFIG_PATH}/tempest/tempest-production.overrides.conf"
+# NOTE: could dynamically switch this based on environment
+KAYOBE_AUTOMATION_TEMPEST_CONF_OVERRIDES="${KAYOBE_AUTOMATION_CONFIG_PATH}/tempest/tempest-preprod.overrides.conf"
 
 # See: https://github.com/stackhpc/docker-rally/blob/master/bin/rally-verify-wrapper.sh for a full list of tempest parameters that can be overriden.
 # You can override tempest parameters like so:
