@@ -1,1 +1,1 @@
-etc/kayobe/inventory/group_vars/controllers/network-interfaces
+../controllers/network-interfaces
