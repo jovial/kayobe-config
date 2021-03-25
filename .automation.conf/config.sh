@@ -3,6 +3,7 @@
 OPENSTACK_SERIES=train
 KAYOBE_URI=https://github.com/RSE-Cambridge/kayobe
 KAYOBE_BRANCH=cumulus/train
+KAYOBE_PIP_INSTALL_ARGS_EXTRA="--use-deprecated=legacy-resolver"
 
 # NOTE: could dynamically switch this based on environment
 KAYOBE_AUTOMATION_TEMPEST_CONF_OVERRIDES="${KAYOBE_AUTOMATION_CONFIG_PATH}/tempest/tempest-preprod.overrides.conf"
