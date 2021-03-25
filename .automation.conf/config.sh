@@ -6,6 +6,9 @@ KAYOBE_BRANCH=cumulus/train
 # Don't use upper constraints when installing kayobe
 KAYOBE_PIP_INSTALL_ARGS=""
 
+# Train: For Ensure the image cache directory exists which looks up USER in environment
+export USER=stack
+
 # NOTE: could dynamically switch this based on environment
 KAYOBE_AUTOMATION_TEMPEST_CONF_OVERRIDES="${KAYOBE_AUTOMATION_CONFIG_PATH}/tempest/tempest-preprod.overrides.conf"
 
