@@ -59,7 +59,7 @@ ceph_tag: 9.0.1.1
 cinder_tag: 9.0.1.1
 chrony_tag: 9.0.1.1
 designate_tag: 9.0.1.1
-elasticsearch_tag: 9.0.1.1
+elasticsearch_tag: 9.3.1.1-1
 elasticsearch_curator_tag: 9.3.1.1-1
 fluentd_tag: 9.0.1.1
 glance_tag: 9.0.1.1
@@ -73,7 +73,7 @@ iscsid_tag: 9.0.1.1
 kafka_tag: 9.0.1.1
 keepalived_tag: 9.0.1.1
 keystone_tag: 9.0.1.1
-kibana_tag: 9.0.1.1
+kibana_tag: 9.3.1.1-1
 kolla_toolbox_tag: 9.0.1.1
 logstash_tag: 9.0.1.1
 octavia_tag: 9.0.1.1
@@ -97,6 +97,10 @@ rabbitmq_tag: 9.0.1.1
 skydive_tag: 9.0.1.1
 storm_tag: 9.0.1.1
 zookeeper_tag: 9.0.1.1
+
+# We have upgraded to v6 early, helps with centos8 move
+elasticsearch_use_v6: true
+kibana_use_v6: true
 
 # Default size causes ES to fall over very easily
 es_heap_size: "24g"
