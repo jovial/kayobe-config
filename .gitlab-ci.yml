@@ -106,6 +106,9 @@ kolla diff:
     paths: ['./kayobe-config-diff.txt']
 
 tempest:
+  tags:
+    - preprod
+    - tempest
   variables:
      GIT_SUBMODULE_STRATEGY: normal
   image: $RALLY_DOCKER_IMAGE:$CI_COMMIT_SHA
