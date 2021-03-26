@@ -1967,8 +1967,8 @@
     ]
   },
   "timezone": "",
-  "title": "OpenStack Dashboard",
+  "title": "OpenStack Dashboard (old)",
   "uid": "YZCsB1QmZ",
-  "version": 10
+  "version": 9
 }
 {% endraw %}
