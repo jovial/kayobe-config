@@ -10,12 +10,15 @@ scrape_configs:
      - source_labels: [__param_target]
        target_label: instance
      - target_label: __address__
-       replacement: localhost:9610  ### the address of the redfish-exporter address
+       ### the address of the redfish-exporter address
+       replacement: "{{ groups['monitoring'][0] }}:9610"
     static_configs:
 {% for host in groups.get('redfish', []) %}
       - targets:
           - '{{ hostvars[host]["ipmi_address"] }}'
         labels:
           server: '{{ host }}'
+          ### usually the rack or similar
+          env: "preprod"
 {% endfor %}
 {% endif %}

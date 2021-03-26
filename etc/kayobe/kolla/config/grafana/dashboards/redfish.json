@@ -16,12 +16,12 @@
   "editable": true,
   "gnetId": 12403,
   "graphTooltip": 0,
-  "id": 5,
-  "iteration": 1616695607890,
+  "id": 130,
+  "iteration": 1616784463607,
   "links": [],
   "panels": [
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -57,6 +57,29 @@
       "id": 53,
       "options": {
         "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": true
+        },
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -69,10 +92,10 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "targets": [
         {
-          "expr": "up{job=\"redfish-exporter\"} == 1",
+          "expr": "count(up{job=\"redfish-exporter\"} == 1)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -96,7 +119,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -132,6 +155,29 @@
       "id": 54,
       "options": {
         "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": true
+        },
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -144,10 +190,10 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "targets": [
         {
-          "expr": "redfish_system_power_state == 1",
+          "expr": "count(redfish_system_power_state == 1)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -162,7 +208,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -198,6 +244,29 @@
       "id": 55,
       "options": {
         "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": true
+        },
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -210,10 +279,10 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "targets": [
         {
-          "expr": "redfish_system_power_state != 1",
+          "expr": "count(redfish_system_power_state != 1)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -228,7 +297,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -264,6 +333,29 @@
       "id": 56,
       "options": {
         "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": true
+        },
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -276,10 +368,10 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "targets": [
         {
-          "expr": "redfish_chassis_health != 1",
+          "expr": "count(redfish_chassis_health != 1)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -294,7 +386,7 @@
       "type": "stat"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -330,6 +422,29 @@
       "id": 57,
       "options": {
         "colorMode": "value",
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": true
+        },
         "graphMode": "area",
         "justifyMode": "auto",
         "orientation": "auto",
@@ -342,10 +457,10 @@
         },
         "textMode": "auto"
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "targets": [
         {
-          "expr": "redfish_logservices_entry_count{name=\"SEL Log Service\", severity!=\"OK\"} != 0",
+          "expr": "count(redfish_logservices_entry_count{name=\"SEL Log Service\", severity!=\"OK\"} != 0)",
           "format": "table",
           "hide": false,
           "instant": true,
@@ -378,7 +493,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -410,6 +525,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -472,7 +590,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -506,6 +624,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -566,7 +687,7 @@
     },
     {
       "columns": [],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -581,6 +702,7 @@
         "y": 4
       },
       "id": 38,
+      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -781,11 +903,11 @@
       "timeShift": null,
       "title": "Power states",
       "transform": "table",
-      "type": "table-old"
+      "type": "table"
     },
     {
       "columns": [],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -801,6 +923,7 @@
       },
       "id": 33,
       "interval": "",
+      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -887,14 +1010,14 @@
       "timeShift": null,
       "title": "Chassis status",
       "transform": "table",
-      "type": "table-old"
+      "type": "table"
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -929,6 +1052,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -940,7 +1066,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=\"InletTemp\"}) by (env)",
+          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=~\".*InletTemp\"}) by (env)",
           "hide": false,
           "interval": "",
           "legendFormat": "max inlet {{ env }}",
@@ -993,7 +1119,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1031,6 +1157,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1042,7 +1171,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=\"CPU1Temp\"}) by (env)",
+          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=~\".*CPU1Temp\"}) by (env)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ env }}",
@@ -1095,7 +1224,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1132,6 +1261,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1143,7 +1275,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=\"CPU2Temp\"}) by (env)",
+          "expr": "max(redfish_chassis_temperature_celsius{sensor_id=~\".*CPU2Temp\"}) by (env)",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ env }}",
@@ -1196,7 +1328,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -1245,6 +1377,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1316,7 +1451,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -1365,6 +1500,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1444,7 +1582,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -1466,11 +1604,12 @@
       "legend": {
         "show": false
       },
+      "options": {},
       "pluginVersion": "7.1.5",
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "redfish_chassis_temperature_celsius{sensor_id=\"InletTemp\"}",
+          "expr": "redfish_chassis_temperature_celsius{sensor_id=~\".*InletTemp\"}",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
@@ -1517,7 +1656,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1540,6 +1679,7 @@
       "legend": {
         "show": false
       },
+      "options": {},
       "pluginVersion": "7.1.5",
       "reverseYBuckets": false,
       "targets": [
@@ -1591,7 +1731,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1614,11 +1754,12 @@
       "legend": {
         "show": false
       },
+      "options": {},
       "pluginVersion": "7.1.5",
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "redfish_chassis_temperature_celsius{sensor_id=\"CPU1Temp\"} != 0",
+          "expr": "redfish_chassis_temperature_celsius{sensor_id=~\".*CPU1Temp\"} != 0",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
@@ -1665,7 +1806,7 @@
         "mode": "spectrum"
       },
       "dataFormat": "timeseries",
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1688,11 +1829,12 @@
       "legend": {
         "show": false
       },
+      "options": {},
       "pluginVersion": "7.1.5",
       "reverseYBuckets": false,
       "targets": [
         {
-          "expr": "redfish_chassis_temperature_celsius{sensor_id=\"CPU2Temp\"} != 0",
+          "expr": "redfish_chassis_temperature_celsius{sensor_id=~\".*CPU2Temp\"} != 0",
           "hide": false,
           "interval": "",
           "intervalFactor": 1,
@@ -1731,7 +1873,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {
@@ -1781,6 +1923,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1792,7 +1937,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "redfish_chassis_temperature_celsius{sensor_id=\"InletTemp\"}",
+          "expr": "redfish_chassis_temperature_celsius{sensor_id=~\".*InletTemp\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ env }} {{ server }}",
@@ -1845,7 +1990,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "description": "",
       "fieldConfig": {
         "defaults": {
@@ -1880,6 +2025,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -1891,7 +2039,7 @@
       "steppedLine": false,
       "targets": [
         {
-          "expr": "redfish_chassis_temperature_celsius{sensor_id=\"CPU1Temp\"} != 0",
+          "expr": "redfish_chassis_temperature_celsius{sensor_id=~\".*CPU1Temp\"} != 0",
           "hide": false,
           "interval": "",
           "legendFormat": "{{ env }} {{ server }}",
@@ -1941,7 +2089,7 @@
     },
     {
       "columns": [],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -1956,6 +2104,7 @@
         "y": 50
       },
       "id": 34,
+      "options": {},
       "pageSize": null,
       "showHeader": true,
       "sort": {
@@ -2075,11 +2224,11 @@
       "timeShift": null,
       "title": "Errors in event log",
       "transform": "table",
-      "type": "table-old"
+      "type": "table"
     },
     {
       "collapsed": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "gridPos": {
         "h": 1,
         "w": 24,
@@ -2092,15 +2241,15 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "title": "$server",
       "type": "row"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2136,6 +2285,29 @@
       },
       "id": 19,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2147,12 +2319,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2170,7 +2342,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2201,6 +2373,29 @@
       },
       "id": 24,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2212,12 +2407,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2236,7 +2431,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2267,6 +2462,29 @@
       },
       "id": 25,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2278,12 +2496,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2302,7 +2520,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2333,6 +2551,29 @@
       },
       "id": 26,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2344,12 +2585,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2368,7 +2609,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2399,6 +2640,29 @@
       },
       "id": 27,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "auto",
         "reduceOptions": {
           "calcs": [
@@ -2410,12 +2674,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2434,7 +2698,7 @@
       "type": "gauge"
     },
     {
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -2470,6 +2734,29 @@
       },
       "id": 17,
       "options": {
+        "fieldOptions": {
+          "calcs": [
+            "mean"
+          ],
+          "defaults": {
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": [],
+          "values": false
+        },
         "orientation": "horizontal",
         "reduceOptions": {
           "calcs": [
@@ -2481,12 +2768,12 @@
         "showThresholdLabels": false,
         "showThresholdMarkers": true
       },
-      "pluginVersion": "7.1.5",
+      "pluginVersion": "6.6.1",
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "targets": [
@@ -2513,7 +2800,7 @@
         "#299c46",
         "#299c46"
       ],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2551,6 +2838,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2565,8 +2853,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "sparkline": {
@@ -2577,7 +2865,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "redfish_system_power_state{env=\"h22c5\", instance=\"10.45.18.49\", job=\"redfish-exporter\", resource=\"system\", server=\"svn4-h22c5-u5\", system_id=\"System.Embedded.1\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "redfish_system_power_state{server=~\"$server\"}",
@@ -2619,7 +2907,7 @@
         "#299c46",
         "#d44a3a"
       ],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2657,6 +2945,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2671,8 +2960,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "sparkline": {
@@ -2683,7 +2972,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "redfish_chassis_health{chassis_id=\"System.Embedded.1\", env=\"h22c5\", instance=\"10.45.18.49\", job=\"redfish-exporter\", resource=\"chassis\", server=\"svn4-h22c5-u5\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "redfish_chassis_health{server=~\"$server\"}",
@@ -2730,7 +3019,7 @@
         "#299c46",
         "#299c46"
       ],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -2768,6 +3057,7 @@
       "maxDataPoints": 100,
       "nullPointMode": "connected",
       "nullText": null,
+      "options": {},
       "postfix": "",
       "postfixFontSize": "50%",
       "prefix": "",
@@ -2782,8 +3072,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "sparkline": {
@@ -2794,7 +3084,7 @@
         "ymax": null,
         "ymin": null
       },
-      "tableColumn": "redfish_manager_health_state{env=\"h22c5\", instance=\"10.45.18.49\", job=\"redfish-exporter\", manager_id=\"iDRAC.Embedded.1\", model=\"14G DCS\", name=\"Manager\", server=\"svn4-h22c5-u5\", type=\"BMC\"}",
+      "tableColumn": "",
       "targets": [
         {
           "expr": "redfish_manager_health_state{server=~\"$server\"}",
@@ -2836,7 +3126,7 @@
       "cacheTimeout": null,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "decimals": 1,
       "fieldConfig": {
         "defaults": {
@@ -2875,6 +3165,9 @@
       "linewidth": 3,
       "links": [],
       "nullPointMode": "connected",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -2883,8 +3176,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "seriesOverrides": [],
@@ -2958,7 +3251,7 @@
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {},
@@ -3011,6 +3304,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -3019,8 +3315,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "seriesOverrides": [],
@@ -3079,7 +3375,7 @@
     {
       "cacheTimeout": null,
       "columns": [],
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "fieldConfig": {
         "defaults": {
           "custom": {}
@@ -3096,14 +3392,15 @@
       "id": 2,
       "interval": "",
       "links": [],
+      "options": {},
       "pageSize": null,
       "pluginVersion": "6.7.3",
       "repeat": null,
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "showHeader": true,
@@ -3297,14 +3594,14 @@
       "timeShift": null,
       "title": "Disk states / health",
       "transform": "table",
-      "type": "table-old"
+      "type": "table"
     },
     {
       "aliasColors": {},
       "bars": false,
       "dashLength": 10,
       "dashes": false,
-      "datasource": "Prometheus-on-seed",
+      "datasource": "Prometheus",
       "decimals": 0,
       "fieldConfig": {
         "defaults": {
@@ -3341,6 +3638,9 @@
       "lines": true,
       "linewidth": 1,
       "nullPointMode": "null",
+      "options": {
+        "dataLinks": []
+      },
       "percentage": false,
       "pluginVersion": "7.1.5",
       "pointradius": 2,
@@ -3349,8 +3649,8 @@
       "scopedVars": {
         "server": {
           "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         }
       },
       "seriesOverrides": [],
@@ -3410,7 +3710,7 @@
     }
   ],
   "refresh": false,
-  "schemaVersion": 26,
+  "schemaVersion": 22,
   "style": "dark",
   "tags": [],
   "templating": {
@@ -3418,11 +3718,10 @@
       {
         "allValue": null,
         "current": {
-          "selected": true,
-          "text": "svn4-h22c5-u5",
-          "value": "svn4-h22c5-u5"
+          "text": "cpu-e-1041",
+          "value": "cpu-e-1041"
         },
-        "datasource": "Prometheus-on-seed",
+        "datasource": "Prometheus",
         "definition": "label_values(redfish_exporter_collector_duration_seconds, server)",
         "hide": 0,
         "includeAll": false,
@@ -3440,28 +3739,12 @@
         "tagsQuery": "",
         "type": "query",
         "useTags": false
-      },
-      {
-        "datasource": "Prometheus-hardware-dr06",
-        "filters": [
-          {
-            "condition": "",
-            "key": "server",
-            "operator": "=",
-            "value": "svn4-h22c5-u5"
-          }
-        ],
-        "hide": 0,
-        "label": "",
-        "name": "Filters",
-        "skipUrlSync": false,
-        "type": "adhoc"
       }
     ]
   },
   "time": {
     "from": "now-30m",
-    "to": "now-1m"
+    "to": "now-5m"
   },
   "timepicker": {
     "nowDelay": "1m",
@@ -3479,8 +3762,8 @@
     ]
   },
   "timezone": "",
-  "title": "Redfish exporter",
-  "uid": "fPvfQ3zGk",
-  "version": 32
+  "title": "Redfish exporter Copy2",
+  "uid": "b02mElQGk",
+  "version": 6
 }
 {% endraw %}
