@@ -3762,8 +3762,8 @@
     ]
   },
   "timezone": "",
-  "title": "Redfish exporter Copy2",
-  "uid": "b02mElQGk",
-  "version": 6
+  "title": "Redfish exporter",
+  "uid": "b02mElQGX",
+  "version": 7
 }
 {% endraw %}
