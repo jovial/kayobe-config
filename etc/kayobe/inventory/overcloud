@@ -32,3 +32,8 @@ hs-switches
 
 [hs-switches]
 ethsw-dr17-u41
+
+# All the controllers have redfish to scrape
+[redfish]
+[redfish:children]
+controllers
