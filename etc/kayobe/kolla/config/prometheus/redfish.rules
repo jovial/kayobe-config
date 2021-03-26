@@ -3,7 +3,7 @@
 groups:
 - name: Redfish
   rules:
-  - alert: ChassisNotHealthy
+  - alert: RedfishChassisNotHealthy
     expr: avg_over_time(redfish_chassis_health[10m]) != 1
     for: 5m
     labels:
