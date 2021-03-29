@@ -76,7 +76,7 @@ kibana_tag: 9.0.1.1
 kolla_toolbox_tag: 9.0.1.1
 logstash_tag: 9.0.1.1
 octavia_tag: 9.0.1.1
-magnum_tag: 9.3.1.1-1
+magnum_tag: 9.3.1.1-2
 manila_tag: 9.0.1.1
 mariadb_tag: 9.0.1.1
 memcached_tag: 9.0.1.1
