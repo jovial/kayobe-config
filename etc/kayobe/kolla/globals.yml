@@ -95,8 +95,6 @@ prometheus_elasticsearch_exporter_tag: 9.0.1.1
 prometheus_libvirt_exporter_tag: 9.0.1.1
 prometheus_jiralert_tag: 9.0.1.1
 rabbitmq_tag: 9.0.1.1
-skydive_agent_tag: 9.0.1.1
-skydive_analyzer_tag: 9.0.1.1
 storm_tag: 9.0.1.1
 zookeeper_tag: 9.0.1.1
 
