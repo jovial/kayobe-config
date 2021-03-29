@@ -59,7 +59,8 @@ ceph_tag: 9.0.1.1
 cinder_tag: 9.0.1.1
 chrony_tag: 9.0.1.1
 designate_tag: 9.0.1.1
-elasticsearch_tag: 9.0.1.1
+elasticsearch_tag: 9.3.1.1-1
+elasticsearch_curator_tag: 9.3.1.1-1
 fluentd_tag: 9.0.1.1
 glance_tag: 9.0.1.1
 grafana_tag: 9.0.1.1
@@ -72,7 +73,7 @@ iscsid_tag: 9.0.1.1
 kafka_tag: 9.0.1.1
 keepalived_tag: 9.0.1.1
 keystone_tag: 9.0.1.1
-kibana_tag: 9.0.1.1
+kibana_tag: 9.3.1.1-1
 kolla_toolbox_tag: 9.0.1.1
 logstash_tag: 9.0.1.1
 octavia_tag: 9.0.1.1
@@ -99,11 +100,33 @@ skydive_analyzer_tag: 9.0.1.1
 storm_tag: 9.0.1.1
 zookeeper_tag: 9.0.1.1
 
+# We have upgraded to v6 early, helps with centos8 move
+elasticsearch_use_v6: true
+kibana_use_v6: true
+
 # Default size causes ES to fall over very easily
 es_heap_size: "24g"
+# Look after elasticserach indexes, as required
+enable_elasticsearch_curator: true
+# Close index after 30 days
+elasticsearch_curator_soft_retention_period_days: 30
+# Hard delete index after around 3 years
+elasticsearch_curator_hard_retention_period_days: 1100
 
-# Reduce the kolla-ansible token expiry default from one day to one hour
-fernet_token_expiry: 3600
+# Takes longer than the default 10 seconds, we poll every 1m
+prometheus_openstack_exporter_timeout: 30s
 
 # Needed to launch VM instances in aio environment without nested virt
 nova_compute_virt_type: "{{ 'qemu' if kayobe_environment == 'aio' else 'kvm' }}"
+
+# Increase the default prometheus retention period
+prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.retention.size=50GB'
+
+# Check keystone and horizon are up, and cert is valid
+# TODO: fixme
+#prometheus_blackbox_exporter_endpoints:
+#  - "https://{{ public_net_fqdn }}/auth/login/"
+#  - "https://{{ public_net_fqdn }}:5000/v3"
+
+# Reduce the kolla-ansible token expiry default from one day to one hour
+fernet_token_expiry: 3600

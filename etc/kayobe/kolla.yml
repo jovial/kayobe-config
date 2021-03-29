@@ -41,7 +41,7 @@ kolla_ansible_source_url: https://github.com/RSE-Cambridge/kolla-ansible
 
 # Version (branch, tag, etc.) of Kolla Ansible source code repository if type
 # is 'source'. Default is {{ openstack_branch }}.
-kolla_ansible_source_version: cumulus/9.3.1.2
+kolla_ansible_source_version: cumulus/9.3.1.4
 
 # Path to virtualenv in which to install kolla-ansible. Default is
 # $KOLLA_VENV_PATH or $PWD/venvs/kolla-ansible if $KOLLA_VENV_PATH is not set.
@@ -294,7 +294,7 @@ kolla_enable_prometheus: True
 #kolla_enable_sahara:
 #kolla_enable_searchlight:
 #kolla_enable_senlin:
-kolla_enable_skydive: True
+#kolla_enable_skydive:
 #kolla_enable_solum:
 #kolla_enable_storm:
 #kolla_enable_swift:

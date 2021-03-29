@@ -1,12 +1,12 @@
 {% raw %}
 
 groups:
-- name: example
+- name: Node
   rules:
 
   - alert: LowDiskSpace
     expr: ( ( node_filesystem_free_bytes - node_filesystem_avail_bytes ) / node_filesystem_free_bytes ) * 100 >= 80
-    for: 5m
+    for: 1m
     labels:
       severity: alert
     annotations:
@@ -14,8 +14,8 @@ groups:
       description: "{{ $labels.device }} is {{ $value }}% full."
 
   - alert: LowMemory
-    expr: ( ( node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes ) / node_memory_MemTotal_bytes ) * 100 >= 80
-    for: 5m
+    expr: ( ( node_memory_MemTotal_bytes - node_memory_MemAvailable_bytes - (node_memory_Hugepagesize_bytes * node_memory_HugePages_Total)) / (node_memory_MemTotal_bytes - (node_memory_Hugepagesize_bytes * node_memory_HugePages_Total))) * 100 >= 80
+    for: 1m
     labels:
       severity: alert
     annotations:
@@ -24,7 +24,7 @@ groups:
 
   - alert: Overheating
     expr: node_hwmon_temp_celsius >= 100
-    for: 5m
+    for: 1m
     labels:
       severity: alert
     annotations:
@@ -33,9 +33,9 @@ groups:
 
   - alert: InstanceDown
     expr: up{job="node"} == 0
-    for: 5m
+    for: 1m
     labels:
-      severity: page
+      severity: alert
     annotations:
       summary: "Instance {{$labels.instance}} down"
       description: "{{$labels.instance}} has been down for more than 5 minutes."
