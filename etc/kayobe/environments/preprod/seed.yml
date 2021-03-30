@@ -1,0 +1,18 @@
+---
+###############################################################################
+# Seed node configuration.
+
+###############################################################################
+# Network interface attachments.
+
+# List of networks to which seed nodes are attached.
+seed_network_interfaces:
+  - "{{ ilab_net_name }}"
+  - "{{ admin_oc_net_name }}"
+  - "{{ oob_oc_net_name }}"
+  - "{{ provision_oc_net_name }}"
+  - "{{ internal_net_name }}"
+
+###############################################################################
+# Dummy variable to allow Ansible to accept this file.
+workaround_ansible_issue_8743: yes

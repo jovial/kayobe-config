@@ -1,0 +1,11 @@
+---
+###############################################################################
+# Docker configuration.
+
+# URL of docker registry
+# Private registry running on seed
+docker_registry: "192.168.33.3:4000"
+
+###############################################################################
+# Dummy variable to allow Ansible to accept this file.
+workaround_ansible_issue_8743: yes

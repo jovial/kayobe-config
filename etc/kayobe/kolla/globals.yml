@@ -114,6 +114,9 @@ elasticsearch_curator_hard_retention_period_days: 1100
 # Takes longer than the default 10 seconds, we poll every 1m
 prometheus_openstack_exporter_timeout: 30s
 
+# Needed to launch VM instances in aio environment without nested virt
+nova_compute_virt_type: "{{ 'qemu' if kayobe_environment == 'aio' else 'kvm' }}"
+
 # Increase the default prometheus retention period
 prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.retention.size=50GB'
 
