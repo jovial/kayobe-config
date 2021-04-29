@@ -233,9 +233,13 @@ kolla_enable_ceph: False
 #kolla_enable_ceph_mds:
 #kolla_enable_ceph_nfs:
 #kolla_enable_ceph_rgw:
-# The chrony container is disabled by default because we enable an NTP daemon
-# on the host. Setting this to true will disable NTP on the host.
-#kolla_enable_chrony:
+# NOTE:(wszumski): This takes effect in ussuri, but has no effect on
+# centos8/train as it is hardcoded, see:
+# https://github.com/openstack/kayobe/blob/f8b4d2b1eccc2f6d2bd2a2df276333ece127ad3e/ansible/roles/kolla-ansible/templates/globals.yml.j2#L225
+# I have set enable_chrony: False in kolla/globals.yml instead. It is hard to
+# fix the issue upstream as kolla_enable_chrony is evaluated in the context of
+# the control host, so cannot detect OS version to provide a default value.
+kolla_enable_chrony: False
 kolla_enable_cinder: False
 #kolla_enable_cinder_backend_hnas_iscsi:
 #kolla_enable_cinder_backend_hnas_nfs:

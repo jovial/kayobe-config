@@ -128,3 +128,8 @@ prometheus_cmdline_extras: '--storage.tsdb.retention.time=90d --storage.tsdb.ret
 
 # Reduce the kolla-ansible token expiry default from one day to one hour
 fernet_token_expiry: 3600
+
+# NOTE(wszumski): Remove in >= ussuri and use kolla_enable_chrony instead.
+# We want to use host NTP as support for the container is being dropped
+# upstream.
+enable_chrony: False
