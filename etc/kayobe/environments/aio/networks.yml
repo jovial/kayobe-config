@@ -100,6 +100,9 @@ aio_inspection_allocation_pool_start: 192.168.33.128
 aio_inspection_allocation_pool_end: 192.168.33.254
 aio_vip_address: 192.168.33.2
 
+# FIXME: This is referenced in kolla globals
+public_net_fqdn: "{{ aio_vip_address }}"
+
 ###############################################################################
 # Network virtual patch link configuration.
 
