@@ -3,8 +3,10 @@
 # Docker configuration.
 
 # URL of docker registry
-# Private registry running on seed
-docker_registry: "192.168.33.3:4000"
+# Private registry running on cumulus-seed
+# NOTE: This is shared with production so only push images if you want to
+# promote them to prod.
+docker_registry: "10.60.150.1:4000"
 
 ###############################################################################
 # Dummy variable to allow Ansible to accept this file.
