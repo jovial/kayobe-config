@@ -120,9 +120,9 @@ kolla_build_blocks:
     # Install our custom inspector plugins.
     RUN pip3 install stackhpc-inspector-plugins==1.1.1
   magnum_api_footer: |
-    RUN pip3 install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/ussuri-extra -c https://releases.openstack.org/constraints/upper/ussuri
+    RUN pip3 install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/ussuri -c https://releases.openstack.org/constraints/upper/ussuri
   magnum_conductor_footer: |
-    RUN pip3 install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/ussuri-extra -c https://releases.openstack.org/constraints/upper/ussuri
+    RUN pip3 install -U --no-deps git+https://github.com/stackhpc/magnum@stackhpc/ussuri -c https://releases.openstack.org/constraints/upper/ussuri
 
 # Dict mapping image customization variable names to their values.
 # Each variable takes the form:
