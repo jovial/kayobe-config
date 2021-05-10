@@ -1,0 +1,15 @@
+---
+# NOTE(wszumski): This wipes out our bridge. Permissive mode is fine...
+disable_selinux_do_reboot: false
+
+# List of names of host variables to pass through from kayobe hosts to
+# the kolla-ansible seed host, if set. See also
+# kolla_seed_inventory_pass_through_host_vars_map.
+kolla_seed_inventory_pass_through_host_vars:
+  - "ansible_host"
+  - "ansible_port"
+  - "ansible_ssh_private_key_file"
+  - "kolla_api_interface"
+  - "kolla_bifrost_network_interface"
+  # NOTE(wszumski): The following items have been appended
+  - "ansible_ssh_common_args"
