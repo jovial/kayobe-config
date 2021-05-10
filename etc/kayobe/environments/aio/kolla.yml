@@ -8,7 +8,7 @@ kolla_enable_tls_external: False
 # Kolla feature flag configuration.
 
 kolla_enable_neutron_agent_ha: False
-kolla_enable_prometheus: False
+kolla_enable_prometheus: True
 
 ###############################################################################
 # TLS certificate bundle management
