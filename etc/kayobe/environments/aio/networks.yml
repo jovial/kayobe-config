@@ -8,7 +8,7 @@
 
 # Name of the network used for admin access to the overcloud
 #admin_oc_net_name:
-admin_oc_net_name: aio
+admin_oc_net_name: public
 
 # Name of the network used by the seed to manage the bare metal overcloud
 # hosts via their out-of-band management controllers.
@@ -45,7 +45,7 @@ external_net_name: aio
 
 # Name of the network used to expose the public OpenStack API endpoints.
 #public_net_name:
-public_net_name: aio
+public_net_name: public
 
 # Name of the network used by Neutron to carry tenant overlay network traffic.
 #tunnel_net_name:
@@ -100,8 +100,12 @@ aio_inspection_allocation_pool_start: 192.168.33.128
 aio_inspection_allocation_pool_end: 192.168.33.254
 aio_vip_address: 192.168.33.2
 
+public_cidr: 10.60.0.0/16
+public_allocation_pool_start: 0.0.0.0
+public_allocation_pool_end: 0.0.0.0
+public_vip_address: 10.60.253.141
 # FIXME: This is referenced in kolla globals
-public_net_fqdn: "{{ aio_vip_address }}"
+public_net_fqdn: "{{ public_vip_address }}"
 
 ###############################################################################
 # Network virtual patch link configuration.
